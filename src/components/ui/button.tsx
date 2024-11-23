@@ -9,11 +9,17 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-my-primary text-my-base hover:bg-my-primary/50",
+        /* custom */
+        default:
+          "bg-my-primary text-my-base hover:bg-my-secondary hover:text-my-primary",
         light: "bg-my-light text-my-neutral hover:bg-my-light/90",
+        /* custom */
         outline:
           "border border-my-neutral-dark bg-my-base hover:bg-my-neutral-dark hover:text-my-base",
-        secondary: "bg-my-light text-my-primary hover:bg-my-light/80",
+        /* custom */
+        secondary:
+          "bg-my-light text-my-primary hover:bg-my-primary hover:text-my-base",
+        /* custom */
         neutral:
           "bg-my-neutral-dark text-my-base hover:border hover:border-my-neutral-dark hover:bg-my-base hover:text-my-neutral-dark",
         ghost: "hover:bg-accent hover:text-accent-foreground",
