@@ -16,6 +16,7 @@ export default {
         "my-dark": "var(--color-dark)",
         "my-secondary": "var(--color-secondary)",
         "my-neutral": "var(--color-neutral)",
+        "my-neutral-dark": "var(--color-neutral-dark)",
         "my-base": "var(--color-base)",
         /* ------- */
         background: "hsl(var(--background))",

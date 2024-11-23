@@ -39,6 +39,7 @@ body {
     --color-dark: #101010;
     --color-secondary: #c8c8f4;
     --color-neutral: #d4d4d8;
+    --color-neutral-dark: #939393;
     --color-base: #ffffff;
   }
   .dark {
