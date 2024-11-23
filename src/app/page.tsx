@@ -18,7 +18,7 @@ export default function Home() {
           que você precisa!
         </p>
         <div className="mx-auto gap-3 mt-8">
-          <Link href="/auth/login">
+          <Link href="/auth">
             <Button className="text-lg w-52">Entrar</Button>
           </Link>
         </div>
