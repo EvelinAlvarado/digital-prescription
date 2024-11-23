@@ -31,6 +31,16 @@ const Register = () => {
                 <Input type="text" id="lastName" placeholder="Last Name" />
               </div>
             </div>
+            <div className="flex gap-2">
+              <div className="flex flex-col space-y-1.5 w-full">
+                <Label htmlFor="telefone">Telefone</Label>
+                <Input type="text" id="name" placeholder="Name" />
+              </div>
+              <div className="flex flex-col space-y-1.5 w-full">
+                <Label htmlFor="cpf">CPF</Label>
+                <Input type="text" id="lastName" placeholder="Last Name" />
+              </div>
+            </div>
             <div className="flex flex-col space-y-1.5">
               <Label htmlFor="email">Email</Label>
               <Input type="email" id="email" placeholder="Email" />
@@ -75,6 +85,7 @@ const Register = () => {
         </Button>
       </CardFooter>
     </div>
+    /* telefone, cPF */
   );
 };
 
