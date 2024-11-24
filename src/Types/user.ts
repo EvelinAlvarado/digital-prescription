@@ -30,7 +30,7 @@ export interface PrescriptionListTable {
   code: string;
   name_drug: string;
   quantity: number;
-  status: "Pendiente" | "Usada" | "Expirado";
+  status: "PENDIENTE" | "USADA" | "EXPIRADO";
   created_at: Date;
   expires_at: Date;
 }

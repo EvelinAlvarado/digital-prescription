@@ -35,15 +35,15 @@ export default function DashboardLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // const { user } = useAuth();
-  const params = useParams();
-  const userNameUrl = params["user-name"];
+  const { user } = useAuth();
+  // const params = useParams();
+  // const userNameUrl = params["user-name"];
 
   //Data coming from backend? - exemplo
-  const user = {
-    role: "pharmaceutical", // Dynamic (pharmaceutical, doctor, client)
-    name: "Carlos Silva",
-  };
+  // const user = {
+  //   role: "pharmaceutical", // Dynamic (pharmaceutical, doctor, client)
+  //   name: "Carlos Silva",
+  // };
   console.log(user);
 
   const sidebarLinks: SidebarLinks = {

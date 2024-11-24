@@ -16,9 +16,9 @@ function PrescriptionCard({
         <h3 className="text-lg font-bold">{prescription.name_drug}</h3>
         <span
           className={`text-sm font-semibold ${
-            prescription.status === "Pendiente"
+            prescription.status === "PENDIENTE"
               ? "text-yellow-600"
-              : prescription.status === "Usada"
+              : prescription.status === "USADA"
               ? "text-green-600"
               : "text-red-600"
           }`}
