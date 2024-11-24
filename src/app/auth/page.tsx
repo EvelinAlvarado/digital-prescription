@@ -2,11 +2,9 @@ import { Button } from "@/components/ui/button";
 import React from "react";
 import Link from "next/link";
 
-const AuthLayout = () => {
+const AuthForm = () => {
   return (
     <div className="bg-my-base">
-      formulario: login(email, password)/register(nome,CPF, telefone, senha,
-      select(medico, farmaceutico, paciente) email)
       <Link href="/auth/login">
         <Button className="text-lg w-52">Login</Button>
       </Link>
@@ -17,4 +15,4 @@ const AuthLayout = () => {
   );
 };
 
-export default AuthLayout;
+export default AuthForm;
