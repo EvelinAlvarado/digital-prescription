@@ -35,12 +35,12 @@ export const AuthProvider = ({ children }: UserProviderProps) => {
   const getUserData = async () => {
     try {
       // https://horadecodar.com.br/como-enviar-bearer-token-com-o-axios/
-      const response = await API.get("/user/me", {
+      const response = await API.get("/users/me", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       });
-      const userData = response.data;
+      const userData: User = response.data;
       setUser(userData);
       return userData;
     } catch (error) {
@@ -52,12 +52,12 @@ export const AuthProvider = ({ children }: UserProviderProps) => {
 
   const login = async (email: string, password: string) => {
     try {
-      const response = await API.post("", { email, password });
+      const response = await API.post("/users/sessions", { email, password });
       const token = response.data.token;
 
       localStorage.setItem("token", token);
       setToken(token);
-      getUserData();
+      // getUserData();
     } catch (error) {
       console.error("Error ao fazer o login:", error);
     }

@@ -1,56 +1,59 @@
 "use client";
 
 import { Prescription } from "@/Types/user";
-import { createContext, ReactNode, useState } from "react";
+import { createContext, ReactNode, useContext, useState } from "react";
+import { AuthContext } from "@/context/AuthContext";
 
-interface PrescriptionContextProps {
+interface PrescriptionContextType {
   prescriptions: Prescription[];
-  addPrescription: (prescription: Prescription) => void;
-  editPrescription: (id: string, updatedData: Partial<Prescription>) => void;
-  deletePrescription: (id: string) => void;
   getPrescription: (id: string) => Prescription | undefined;
+  userRole: string | null;
 }
 
 export const PrescriptionContext = createContext<
-  PrescriptionContextProps | undefined
+  PrescriptionContextType | undefined
 >(undefined);
 
 export const PrescriptionProvider = ({ children }: { children: ReactNode }) => {
-  const [prescriptions, setPrescriptions] = useState<Prescription[]>([]);
+  const [prescriptions, setPrescriptions] = useState<Prescription[]>([
+    // Exemplo
+    {
+      id: "1",
+      code: "ABC123",
+      name_drug: "Paracetamol",
+      quantity: 10,
+      instructions: "Tomar cada 8 horas",
+      status: "Pendiente",
+      created_at: new Date("2024-11-01"),
+      expires_at: new Date("2024-12-01"),
+      type: 1,
+    },
+    {
+      id: "2",
+      code: "DEF456",
+      name_drug: "Ibuprofeno",
+      quantity: 5,
+      instructions: "Tomar después de las comidas",
+      status: "Usada",
+      created_at: new Date("2024-11-02"),
+      expires_at: new Date("2024-12-02"),
+      type: 2,
+    },
+  ]);
 
-  const addPrescription = (prescription: Prescription) => {
-    setPrescriptions((prev) => [...prev, prescription]);
-  };
-
-  const editPrescription = (id: string, updatedData: Partial<Prescription>) => {
-    setPrescriptions((prev) =>
-      prev.map((prescription) =>
-        prescription.id === id
-          ? { ...prescription, ...updatedData }
-          : prescription
-      )
-    );
-  };
-
-  const deletePrescription = (id: string) => {
-    setPrescriptions((prev) =>
-      prev.filter((prescription) => prescription.id !== id)
-    );
-  };
+  const { user } = useContext(AuthContext) ?? { user: null };
+  const userRole = user?.role || null;
 
   const getPrescription = (id: string): Prescription | undefined => {
-    return prescriptions.find((prescription) => prescription.id === id);
+    return prescriptions.find(
+      (prescription) =>
+        prescription.code.trim().toLowerCase() === id.trim().toLowerCase()
+    );
   };
 
   return (
     <PrescriptionContext.Provider
-      value={{
-        prescriptions,
-        addPrescription,
-        editPrescription,
-        deletePrescription,
-        getPrescription,
-      }}
+      value={{ prescriptions, getPrescription, userRole }}
     >
       {children}
     </PrescriptionContext.Provider>

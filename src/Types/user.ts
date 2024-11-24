@@ -15,22 +15,27 @@ export interface SidebarLinks {
 export interface User {
   role: "DOCTOR" | "CLIENT" | "PHARMACEUTICAL";
   id: string;
-  name?: string;
-  crm?: string;
+  name: string;
+  resgistration_document?: string;
   specialty?: string;
-  phone?: string;
-  id_user?: string;
-  prescriptions?: Prescription[];
+  phone: string;
+  user_id: string;
+  prescriptions: PrescriptionListTable[];
+  email: string;
+  password: string;
 }
 
-export interface Prescription {
+export interface PrescriptionListTable {
   id: string;
   code: string;
   name_drug: string;
   quantity: number;
-  type: number;
-  instructions: string;
   status: "Pendiente" | "Usada" | "Expirado";
   created_at: Date;
   expires_at: Date;
+}
+
+export interface Prescription extends PrescriptionListTable {
+  type: number;
+  instructions: string;
 }

@@ -1,3 +1,4 @@
+import FormPrescription from "@/components/FormPrescription";
 import React from "react";
 
 export default function NewPrescription() {
@@ -12,6 +13,7 @@ export default function NewPrescription() {
           nova receita médica de forma rápida e segura.
         </p>
       </div>
+      <FormPrescription />
     </section>
   );
 }

@@ -31,20 +31,16 @@ const Login = () => {
     setIsLoading(true);
     setError(null);
     // console.log(email, password);
-    // router.push(`/dashboard/${email}`);
 
     /* using API */
     try {
       await login(email, password);
       router.push("/dashboard");
-
-      /* (/user/me) -> token */
-      router.push("/dashboard");
     } catch (err: any) {
       setError("Falha ao fazer login. Verifique suas credenciais.");
       console.error("Error ao fazer o login:", err.message);
     } finally {
-      setIsLoading(false); // Finalizar estado de carga
+      setIsLoading(false);
     }
   };
 

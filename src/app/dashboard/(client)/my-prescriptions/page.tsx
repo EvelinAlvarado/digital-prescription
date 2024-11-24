@@ -1,9 +1,11 @@
+import { PrescriptionList } from "@/components/PrescriptionList";
+import { columns, data } from "@/constants/temporaryData";
 import React from "react";
 
 export default function MyPrescriptions() {
   return (
     <section className="flex flex-col justify-start items-start min-h-full">
-      <div>
+      <div className="mb-4">
         <h2 className="text-4xl font-semibold text-primary mb-2">
           Minhas Receitas Médicas
         </h2>
@@ -14,6 +16,7 @@ export default function MyPrescriptions() {
         </p>
       </div>
       {/* tabela */}
+      <PrescriptionList columns={columns} data={data} />
     </section>
   );
 }

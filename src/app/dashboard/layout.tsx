@@ -39,11 +39,10 @@ export default function DashboardLayout({
   const params = useParams();
   const userNameUrl = params["user-name"];
 
-  // Data coming from backend? - exemplo
+  //Data coming from backend? - exemplo
   const user = {
-    role: "client", // Dynamic (pharmaceutical, doctor, client)
+    role: "pharmaceutical", // Dynamic (pharmaceutical, doctor, client)
     name: "Carlos Silva",
-    userName: userNameUrl,
   };
   console.log(user);
 

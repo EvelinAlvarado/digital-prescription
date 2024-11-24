@@ -17,7 +17,7 @@ const Register = () => {
       <CardHeader>
         <CardTitle>Criar Conta</CardTitle>
       </CardHeader>
-      <CardContent>
+      <CardContent className="pb-0">
         <form>
           <div className="grid w-full items-center gap-4">
             <div className="flex gap-2">
@@ -57,7 +57,7 @@ const Register = () => {
               />
             </div>
           </div>
-          <Button type="submit" className="w-full">
+          <Button type="submit" className="w-full mt-5">
             Sign up
           </Button>
         </form>
