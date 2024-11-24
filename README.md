@@ -1,36 +1,67 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Projeto +DIGITAL SAUDE
 
-## Getting Started
+Back-end do projeto desenvolvido no âmbito do 1º Hackathon da Cont.
 
-First, run the development server:
+## Sobre o Project
+
+Portal web de gerenciamento de receitas entre os médicos e farmácias, visando aprimorar o processo de compra de medicamentos pelos pacientes.
+
+## Imagem
+
+![Imagem](https://i.imgur.com/PGwiAde.png)
+
+## Stack utilizada
+
+**Back-end:** Node, TypeScript, Fastify, Prisma, ProstgreSQL e Docker.
+
+## Executando
+
+Para executar o projeto execute os seguintes passos:
+
+### Clone o Repositório
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/will-cesar/react-crud-projetos.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Variáveis
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Criar arquivo .env e preencher com os valores adequados
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Conteúdo do Arquivo .env
 
-## Learn More
+```bash
+#Server Port
+PORT=3334
 
-To learn more about Next.js, take a look at the following resources:
+#PostgreSQL
+POSTGRES_USER=
+POSTGRES_PASSWORD=
+POSTGRES_DB=
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+#Secret Token
+SECRET_TOKEN=
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+#Prisma
+DATABASE_URL="postgresql://johndoe:randompassword@localhost:5432/mydb?schema=public"
 
-## Deploy on Vercel
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Subir o Docker
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+Docker Compose up
+```
+
+### Rodar as Migrations do Banco de Dados
+
+```bash
+npx prisma migrate dev
+```
+
+## Autores
+
+- [@EvelinAlvarado](https://www.github.com/EvelinAlvarado)
+- [@leticiaveigacs](https://www.github.com/leticiaveigacs)
+- [@rgvieiraoficial](https://www.github.com/rgvieiraoficial)
+- [@GabrielGomesSantos](https://www.github.com/GabrielGomesSantos)
