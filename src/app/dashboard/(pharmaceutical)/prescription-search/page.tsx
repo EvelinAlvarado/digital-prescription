@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import PrescriptionDetails from "@/components/PrescriptionDetails"; // Importamos el nuevo componente
+import PrescriptionDetails from "@/components/PrescriptionDetails";
 import { usePrescriptions } from "@/hooks/usePrescription";
 
 export default function PrescriptionSearch() {
@@ -45,10 +45,7 @@ export default function PrescriptionSearch() {
       </div>
 
       {selectedPrescriptionId ? (
-        <PrescriptionDetails
-          id={selectedPrescriptionId}
-          userRole={userRole} // Pasamos el rol
-        />
+        <PrescriptionDetails id={selectedPrescriptionId} userRole={userRole} />
       ) : searchCode ? (
         <p className="text-muted-foreground mt-4">
           Nenhuma receita encontrada para o código "{searchCode}".
