@@ -12,9 +12,8 @@ export interface SidebarLinks {
   client: SidebarLink[];
 }
 
-// user type
 export interface User {
-  role: "doctor" | "client" | "pharmaceutical";
+  role: "DOCTOR" | "CLIENT" | "PHARMACEUTICAL";
   id: string;
   name?: string;
   crm?: string;
@@ -31,7 +30,7 @@ export interface Prescription {
   quantity: number;
   type: number;
   instructions: string;
-  status: "Pendiente" | "Rejeitado" | "Aprovado";
-  expeditionDate: Date;
-  expiredDate: Date;
+  status: "Pendiente" | "Usada" | "Expirado";
+  created_at: Date;
+  expires_at: Date;
 }
