@@ -27,18 +27,21 @@ import {
   LucidePencilLine,
   Pill,
 } from "lucide-react";
+import Image from "next/image";
+import { useAuth } from "@/hooks/useAuth";
 
 export default function DashboardLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // const { user } = useAuth();
   const params = useParams();
   const userNameUrl = params["user-name"];
 
-  // Data coming from backend?
+  // Data coming from backend? - exemplo
   const user = {
-    role: "pharmaceutical", // Dynamic (pharmaceutical, doctor, client)
+    role: "client", // Dynamic (pharmaceutical, doctor, client)
     name: "Carlos Silva",
     userName: userNameUrl,
   };
@@ -81,21 +84,21 @@ export default function DashboardLayout({
   // Filter sidebar links based on user role
   let userSidebarLinks: SidebarLink[] = [];
 
-  if (user.role === "pharmaceutical") {
+  if (user?.role?.toLowerCase() === "pharmaceutical") {
     userSidebarLinks = sidebarLinks.pharmaceutical;
-  } else if (user.role === "doctor") {
+  } else if (user?.role?.toLowerCase() === "doctor") {
     userSidebarLinks = sidebarLinks.doctor;
-  } else if (user.role === "client") {
+  } else if (user?.role?.toLowerCase() === "client") {
     userSidebarLinks = sidebarLinks.client;
   }
   return (
     <SidebarProvider>
       <AppSidebar sidebarLinks={userSidebarLinks} />
       <SidebarInset className="bg-my-base">
-        <header className="flex h-16 shrink-0 items-center gap-2 border-b px-4">
+        <header className="flex h-16 shrink-0 items-center gap-2 border-b px-4 ">
           <SidebarTrigger className="-ml-1" />
           <Separator orientation="vertical" className="mr-2 h-4" />
-          <Breadcrumb>
+          {/* <Breadcrumb>
             <BreadcrumbList>
               <BreadcrumbItem className="hidden md:block">
                 <BreadcrumbLink href="#">
@@ -107,7 +110,18 @@ export default function DashboardLayout({
                 <BreadcrumbPage>Data Fetching</BreadcrumbPage>
               </BreadcrumbItem>
             </BreadcrumbList>
-          </Breadcrumb>
+          </Breadcrumb> */}
+          <div className="ml-auto px-3 flex gap-3 items-center">
+            <div className="border border-my-primary rounded-full">
+              <Image
+                alt="Imagen de usuario"
+                src="/images/user-default.png"
+                width={30}
+                height={30}
+              />
+            </div>
+            <span>{user?.name}</span>
+          </div>
         </header>
         <main className="bg-my-base flex flex-1 flex-col gap-4 p-4">
           {children}

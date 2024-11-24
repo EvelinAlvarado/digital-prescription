@@ -11,11 +11,9 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useAuth } from "@/hooks/useAuth";
-import { API } from "@/services/api";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
-import { FcGoogle } from "react-icons/fc";
 
 const Login = () => {
   const { login } = useAuth();

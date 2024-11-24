@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 // import localFont from "next/font/local";
 import "./globals.css";
 import { AuthProvider } from "@/context/AuthContext";
+import { PrescriptionProvider } from "@/context/PrescriptionContext";
 
 /* const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -28,7 +29,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <AuthProvider>
-        <body className="bg-my-base">{children}</body>
+        <PrescriptionProvider>
+          <body className="bg-my-base">{children}</body>
+        </PrescriptionProvider>
       </AuthProvider>
     </html>
   );
