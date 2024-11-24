@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { useAuth } from "@/hooks/useAuth";
 import { API } from "@/services/api";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -17,36 +18,35 @@ import React, { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 
 const Login = () => {
+  const { login } = useAuth();
   const router = useRouter(); // like naviagate()
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsLoading(true);
+
+    setIsLoading(true);
+    setError(null);
     // console.log(email, password);
     // router.push(`/dashboard/${email}`);
 
     /* using API */
     try {
-      // call API using axios
-      const response = await API.post("", { email, password });
-      console.log("response:", response.data);
-      console.log("token:", response.data.token);
-      /* const urlName = response.data.user.name
-        .toLowerCase()
-        .replace(/\s+/g, "-"); */
-      //console.log("urlName:", urlName);
-      // go to dashboard
-      const token = response.data.token;
+      await login(email, password);
+      router.push("/dashboard");
 
-      //Save token to localStorage
-      localStorage.setItem("token", token);
       /* (/user/me) -> token */
       router.push("/dashboard");
-    } catch (error: any) {
-      console.log("Error durante o login:", error.message);
+    } catch (err: any) {
+      setError("Falha ao fazer login. Verifique suas credenciais.");
+      console.error("Error ao fazer o login:", err.message);
+    } finally {
+      setIsLoading(false); // Finalizar estado de carga
     }
   };
 
@@ -84,6 +84,7 @@ const Login = () => {
               />
             </div>
           </div>
+          {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
           <div className="flex flex-col w-full mt-6">
             <Button type="submit" className="w-full">
               {isLoading ? "Entrando..." : "Entrar"}
@@ -103,24 +104,6 @@ const Login = () => {
             </Button>
           </Link>
         </CardDescription>
-        <div className="flex items-center space-x-2 w-full pb-2 md:pt-2">
-          <hr className="flex-grow border-1 border-my-primary" />
-          <span className="text-sm">OU</span>
-          <hr className="flex-grow border-1 border-my-primary" />
-        </div>
-        <Button
-          // onClick={() =>
-          //   signIn("google", {
-          //     callbackUrl: "http://localhost:3000/user/dashboard",
-          //   })
-          // }
-          variant="outline"
-          type="submit"
-          className="w-full"
-        >
-          <FcGoogle />
-          Entrar com Google
-        </Button>
       </CardFooter>
     </div>
   );

@@ -1,6 +1,9 @@
+import { LucideIcon } from "lucide-react";
+
 export interface SidebarLink {
   href: string;
   label: string;
+  icon: LucideIcon;
 }
 
 export interface SidebarLinks {
@@ -28,7 +31,7 @@ export interface Prescription {
   quantity: number;
   type: number;
   instructions: string;
-  status: "Pendiente" | "Regeitado" | "Aprovado";
+  status: "Pendiente" | "Rejeitado" | "Aprovado";
   expeditionDate: Date;
   expiredDate: Date;
 }

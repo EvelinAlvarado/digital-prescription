@@ -20,6 +20,13 @@ import { AppSidebar } from "@/components/app-sidebar";
 import { SidebarLinks } from "@/Types/user";
 import { useParams } from "next/navigation";
 import { SidebarLink } from "@/Types/user";
+import {
+  LucideCross,
+  LucideFileSearch,
+  LucideFileText,
+  LucidePencilLine,
+  Pill,
+} from "lucide-react";
 
 export default function DashboardLayout({
   children,
@@ -40,28 +47,33 @@ export default function DashboardLayout({
   const sidebarLinks: SidebarLinks = {
     pharmaceutical: [
       {
-        href: `dashboard/history`,
-        label: "Medication History",
+        href: `/dashboard/history`,
+        label: "Histórico de Receitas",
+        icon: LucideCross,
       },
       {
-        href: `dashboard/new-prescription`,
-        label: "New Prescription",
+        href: `/dashboard/prescription-search`,
+        label: "Buscar Receita",
+        icon: LucideFileSearch,
       },
     ],
     doctor: [
       {
-        href: `dashboard/prescriptions`,
-        label: "Prescriptions History",
+        href: `/dashboard/prescription-record`,
+        label: "Histórico de Receitas",
+        icon: LucideFileText,
       },
       {
         href: `/dashboard/new-prescription`,
         label: "New Prescription",
+        icon: LucidePencilLine,
       },
     ],
     client: [
       {
         href: `/dashboard/my-prescriptions`,
-        label: "My Prescriptions",
+        label: "Minhas Receitas",
+        icon: Pill,
       },
     ],
   };
@@ -77,7 +89,7 @@ export default function DashboardLayout({
     userSidebarLinks = sidebarLinks.client;
   }
   return (
-    <SidebarProvider className="bg-red-500">
+    <SidebarProvider>
       <AppSidebar sidebarLinks={userSidebarLinks} />
       <SidebarInset className="bg-my-base">
         <header className="flex h-16 shrink-0 items-center gap-2 border-b px-4">
@@ -97,19 +109,9 @@ export default function DashboardLayout({
             </BreadcrumbList>
           </Breadcrumb>
         </header>
-        <div className="flex flex-1 flex-col gap-4 p-4">
-          <div className="grid auto-rows-min gap-4 md:grid-cols-3">
-            <div className="aspect-video rounded-xl bg-muted/50" />
-            <div className="aspect-video rounded-xl bg-muted/50" />
-            <div className="aspect-video rounded-xl bg-muted/50" />
-            <div>
-              <h1>Dashboard for User ID:</h1>
-
-              <div className="bg-my-base">{children}</div>
-            </div>
-          </div>
-          <div className="min-h-[100vh] flex-1 rounded-xl bg-muted/50 md:min-h-min" />
-        </div>
+        <main className="bg-my-base flex flex-1 flex-col gap-4 p-4">
+          {children}
+        </main>
       </SidebarInset>
     </SidebarProvider>
   );

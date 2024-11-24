@@ -10,7 +10,6 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Link from "next/link";
 import React from "react";
-import { FcGoogle } from "react-icons/fc";
 
 const Register = () => {
   return (
@@ -58,31 +57,20 @@ const Register = () => {
               />
             </div>
           </div>
+          <Button type="submit" className="w-full">
+            Sign up
+          </Button>
         </form>
       </CardContent>
       <CardFooter className="flex flex-col w-full">
-        <Button type="submit" className="w-full">
-          Sign up
-        </Button>
         <CardDescription className="">
           Já tem uma conta?
-          <Link
-            href="/auth/login"
-            // onClick={onToggle}
-          >
+          <Link href="/auth/login">
             <Button variant="link" className="w-min">
-              Cadastrar
+              Faça Login
             </Button>
           </Link>
         </CardDescription>
-        <div className="flex items-center space-x-2 w-full pb-2 md:pt-2">
-          <hr className="flex-grow border-1 border-my-primary" />
-          <span className="text-sm">OU</span>
-          <hr className="flex-grow border-1 border-my-primary" />
-        </div>
-        <Button variant="outline" type="submit" className="w-full">
-          <FcGoogle /> Cadastrar com Google
-        </Button>
       </CardFooter>
     </div>
     /* telefone, cPF */
