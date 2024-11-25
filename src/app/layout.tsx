@@ -17,7 +17,7 @@ const geistMono = localFont({
 }); */
 
 export const metadata: Metadata = {
-  title: "Receita Fácil",
+  title: "+Saúde Digital",
   description:
     "A forma mais prática e segura de gerar, enviar e acessar receitas médicas digitais.",
 };
@@ -28,7 +28,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="pt-BR">
       <AuthProvider>
         <PrescriptionProvider>
           <body className="bg-my-base">{children}</body>

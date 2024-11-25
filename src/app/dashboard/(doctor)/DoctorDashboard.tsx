@@ -6,11 +6,12 @@ import { PrescriptionList } from "@/components/PrescriptionList";
 import { data, columns } from "@/constants/temporaryData";
 
 export default function DoctorDashboard() {
-  const { user } = useAuth();
-  // const user = {
-  //   role: "pharmaceutical", // Dynamic (pharmaceutical, doctor, client)
-  //   name: "Carlos Silva",
-  // };
+  // const { user } = useAuth();
+
+  const user = {
+    role: "pharmaceutical", // Dynamic (pharmaceutical, doctor, client)
+    name: "Carlos Silva",
+  };
 
   const userName = user ? `Dr. ${user.name}` : "Usuário";
 

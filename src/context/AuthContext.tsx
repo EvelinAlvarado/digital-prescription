@@ -44,7 +44,10 @@ export const AuthProvider = ({ children }: UserProviderProps) => {
       setUser(userData);
       return userData;
     } catch (error) {
-      console.error("Error ao tentar obter dados no AuthContext:", error);
+      console.error(
+        "Error ao tentar obter dados do user no AuthContext:",
+        error
+      );
       logout();
       return null;
     }
@@ -57,7 +60,7 @@ export const AuthProvider = ({ children }: UserProviderProps) => {
 
       localStorage.setItem("token", token);
       setToken(token);
-      // getUserData();
+      getUserData();
     } catch (error) {
       console.error("Error ao fazer o login:", error);
     }

@@ -22,7 +22,7 @@ const buttonVariants = cva(
         /* custom */
         neutral:
           "bg-my-neutral-dark text-my-base hover:border hover:border-my-neutral-dark hover:bg-my-base hover:text-my-neutral-dark",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
+        ghost: "hover:bg-accent hover:text-my-neutral-dark",
         link: "text-primary underline-offset-4 hover:underline",
       },
       size: {

@@ -3,13 +3,13 @@ import { useAuth } from "@/hooks/useAuth";
 import DashboardHeader from "@/components/DashboardHeader";
 
 export default function ClientDashboard() {
-  const { user } = useAuth();
-  // const user = {
-  //   role: "pharmaceutical", // Dynamic (pharmaceutical, doctor, client)
-  //   name: "Carlos Silva",
-  // };
+  // const { user } = useAuth();
+  const user = {
+    role: "pharmaceutical", // Dynamic (pharmaceutical, doctor, client)
+    name: "Carlos Silva",
+  };
 
-  const userName = user ? `Dr. ${user.name}` : "Usuário";
+  const userName = user?.name || "Usuário";
   return (
     <section>
       <DashboardHeader

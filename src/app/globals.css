@@ -41,6 +41,10 @@ body {
     --color-neutral: #d4d4d8;
     --color-neutral-dark: #939393;
     --color-base: #ffffff;
+    --no-started: #f44336; /* status-error */
+    --started: #c19737; /* status-warning */
+    --done: #43a86f; /* status-success */
+    /* ------------ */
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
     --sidebar-primary: 240 5.9% 10%;

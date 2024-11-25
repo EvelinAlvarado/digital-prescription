@@ -6,13 +6,14 @@ interface PrescriptionCardProps {
   isPharmacist: boolean;
 }
 
-function PrescriptionCard({
+function PrescriptionCard(/* {
   prescription,
   isPharmacist,
-}: PrescriptionCardProps) {
+}: PrescriptionCardProps */) {
   return (
     <div className="p-4 border rounded-lg shadow-sm flex flex-col gap-2 bg-gray-50">
-      <div className="flex justify-between items-center">
+      esto es una prescription card
+      {/* <div className="flex justify-between items-center">
         <h3 className="text-lg font-bold">{prescription.name_drug}</h3>
         <span
           className={`text-sm font-semibold ${
@@ -37,15 +38,14 @@ function PrescriptionCard({
       </p>
       <p className="text-sm text-muted-foreground">
         Expira em: {prescription.expires_at.toLocaleDateString("pt-BR")}
-      </p>
-
+      </p> */}
       {/* Conditional */}
-      {isPharmacist && (
+      {/* {isPharmacist && (
         <div className="flex gap-2 mt-4">
           <Button variant="secondary">Entregue</Button>
           <Button>Cancelar</Button>
         </div>
-      )}
+      )} */}
     </div>
   );
 }
