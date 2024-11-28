@@ -1,6 +1,6 @@
 "use client";
 
-import { PrescriptionListTable } from "@/Types/user";
+import { Prescription } from "@/Types/user";
 import { ColumnDef } from "@tanstack/react-table";
 import { ArrowUpDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -16,7 +16,7 @@ import {
 } from "./ui/select";
 import { useState } from "react";
 
-export const columnsTable: ColumnDef<PrescriptionListTable>[] = [
+export const columnsTable: ColumnDef<Prescription>[] = [
   // {
   //     id: 'select',
   //     header: ({ table }) => (
@@ -87,10 +87,10 @@ export const columnsTable: ColumnDef<PrescriptionListTable>[] = [
         "all"
       );
 
-      // Filtra las filas basándote en el valor seleccionado
+      // Filter
       const handleFilter = (value: string) => {
         setSelectedStatus(value);
-        column.setFilterValue(value === "all" ? undefined : value); // Limpia el filtro si es "all"
+        column.setFilterValue(value === "all" ? undefined : value);
       };
 
       return (
@@ -112,7 +112,7 @@ export const columnsTable: ColumnDef<PrescriptionListTable>[] = [
     },
     cell: ({ row }) => {
       const status: string = row.getValue("status");
-      // const formatted_dob = new Date(created_at as string).toLocaleDateString();
+
       return (
         <div
           className={`font-semibold ${
@@ -183,9 +183,50 @@ export const columnsTable: ColumnDef<PrescriptionListTable>[] = [
   {
     id: "actions",
     cell: ({ row }) => {
-      const person = row.original;
-      console.log(person); /* data row pass to card */
-      return <PrescriptionDialog />;
+      const prescriptionRow: Prescription = row.original;
+      console.log(prescriptionRow); /* data row pass to card */
+      return <PrescriptionDialog prescription={prescriptionRow} />;
+    },
+  },
+];
+
+export const columnsCardPrescription: ColumnDef<Prescription>[] = [
+  {
+    accessorKey: "name_drug",
+    header: "Remédio",
+  },
+  {
+    accessorKey: "quantity",
+    header: "Quantidade",
+  },
+  {
+    accessorKey: "expires_at",
+    header: "Validade da prescrição",
+    cell: ({ row }) => {
+      const expires_at = row.getValue("expires_at");
+      const formatted_dob = new Date(expires_at as string).toLocaleDateString();
+      return <div className="font-medium">{formatted_dob}</div>;
+    },
+  },
+  {
+    accessorKey: "status",
+    header: "Status",
+    cell: ({ row }) => {
+      const status: string = row.getValue("status");
+
+      return (
+        <div
+          className={`font-semibold ${
+            status === "PENDIENTE"
+              ? "text-my-started"
+              : status === "USADA"
+              ? "text-my-done"
+              : "text-my-no-started"
+          }`}
+        >
+          {status}
+        </div>
+      );
     },
   },
 ];

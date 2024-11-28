@@ -1,0 +1,290 @@
+{
+  "prescriptions": [
+    {
+      "id": "rx001",
+      "code": "A101",
+      "name_drug": "Paracetamol",
+      "quantity": 20,
+      "status": "PENDIENTE",
+      "created_at": "2024-11-01T00:00:00.000Z",
+      "expires_at": "2025-01-01T00:00:00.000Z",
+      "type": 1,
+      "instructions": "Tomar uma cápsula a cada 8 horas com um copo de água, preferencialmente após as refeições."
+    },
+    {
+      "id": "rx002",
+      "code": "B202",
+      "name_drug": "Ibuprofeno",
+      "quantity": 15,
+      "status": "USADA",
+      "created_at": "2024-10-15T00:00:00.000Z",
+      "expires_at": "2024-12-15T00:00:00.000Z",
+      "type": 2,
+      "instructions": "Tomar após as refeições para reduzir a irritação gástrica. Não exceda a dose de 3 comprimidos por dia."
+    },
+    {
+      "id": "rx003",
+      "code": "C303",
+      "name_drug": "Amoxicilina",
+      "quantity": 10,
+      "status": "PENDIENTE",
+      "created_at": "2024-11-05T00:00:00.000Z",
+      "expires_at": "2025-02-01T00:00:00.000Z",
+      "type": 1,
+      "instructions": "Tomar 1 comprimido a cada 12 horas com um copo de água. Completar o ciclo de tratamento mesmo após os sintomas desaparecerem."
+    },
+    {
+      "id": "rx004",
+      "code": "D404",
+      "name_drug": "Metformina",
+      "quantity": 30,
+      "status": "EXPIRADO",
+      "created_at": "2023-05-20T00:00:00.000Z",
+      "expires_at": "2024-05-20T00:00:00.000Z",
+      "type": 3,
+      "instructions": "Tomar uma vez ao dia antes do café da manhã para controle de glicose. Não interrompa o uso sem orientação médica."
+    },
+    {
+      "id": "rx005",
+      "code": "E505",
+      "name_drug": "Losartana",
+      "quantity": 15,
+      "status": "PENDIENTE",
+      "created_at": "2024-10-01T00:00:00.000Z",
+      "expires_at": "2025-01-01T00:00:00.000Z",
+      "type": 1,
+      "instructions": "Tomar uma vez ao dia antes de dormir. Evite consumir alimentos com alto teor de potássio durante o tratamento."
+    },
+    {
+      "id": "rx006",
+      "code": "F606",
+      "name_drug": "Omeprazol",
+      "quantity": 10,
+      "status": "PENDIENTE",
+      "created_at": "2024-09-10T00:00:00.000Z",
+      "expires_at": "2024-12-10T00:00:00.000Z",
+      "type": 1,
+      "instructions": "Tomar em jejum pela manhã, pelo menos 30 minutos antes de qualquer alimento."
+    },
+    {
+      "id": "rx007",
+      "code": "G707",
+      "name_drug": "Diclofenaco",
+      "quantity": 5,
+      "status": "USADA",
+      "created_at": "2024-08-01T00:00:00.000Z",
+      "expires_at": "2024-09-01T00:00:00.000Z",
+      "type": 2,
+      "instructions": "Tomar após as refeições, se necessário, para alívio da dor e inflamação."
+    },
+    {
+      "id": "rx008",
+      "code": "H808",
+      "name_drug": "Clonazepam",
+      "quantity": 25,
+      "status": "PENDIENTE",
+      "created_at": "2024-11-10T00:00:00.000Z",
+      "expires_at": "2025-02-10T00:00:00.000Z",
+      "type": 1,
+      "instructions": "Tomar antes de dormir para insônia. Não use durante o dia, pois pode causar sonolência excessiva."
+    },
+    {
+      "id": "rx009",
+      "code": "I909",
+      "name_drug": "Vitamina D",
+      "quantity": 60,
+      "status": "EXPIRADO",
+      "created_at": "2023-06-01T00:00:00.000Z",
+      "expires_at": "2024-06-01T00:00:00.000Z",
+      "type": 3,
+      "instructions": "Tomar uma cápsula ao dia com a refeição para melhor absorção."
+    },
+    {
+      "id": "rx010",
+      "code": "J010",
+      "name_drug": "Azitromicina",
+      "quantity": 3,
+      "status": "USADA",
+      "created_at": "2024-07-01T00:00:00.000Z",
+      "expires_at": "2024-08-01T00:00:00.000Z",
+      "type": 2,
+      "instructions": "Tomar uma vez ao dia por três dias consecutivos. Não interrompa o uso sem orientação médica."
+    },
+    {
+      "id": "rx011",
+      "code": "K101",
+      "name_drug": "Dipirona",
+      "quantity": 12,
+      "status": "PENDIENTE",
+      "created_at": "2024-11-15T00:00:00.000Z",
+      "expires_at": "2025-01-15T00:00:00.000Z",
+      "type": 1,
+      "instructions": "Tomar 1 comprimido a cada 6 horas, se necessário para dor ou febre. Não exceda a dose diária."
+    },
+    {
+      "id": "rx012",
+      "code": "L202",
+      "name_drug": "Captopril",
+      "quantity": 20,
+      "status": "PENDIENTE",
+      "created_at": "2024-11-20T00:00:00.000Z",
+      "expires_at": "2025-05-20T00:00:00.000Z",
+      "type": 1,
+      "instructions": "Tomar 1 comprimido antes das refeições para controle da pressão arterial."
+    },
+    {
+      "id": "rx013",
+      "code": "M303",
+      "name_drug": "Sertralina",
+      "quantity": 30,
+      "status": "PENDIENTE",
+      "created_at": "2024-11-01T00:00:00.000Z",
+      "expires_at": "2025-01-01T00:00:00.000Z",
+      "type": 1,
+      "instructions": "Tomar uma vez ao dia, preferencialmente pela manhã, para controle da ansiedade e depressão."
+    },
+    {
+      "id": "rx014",
+      "code": "N404",
+      "name_drug": "Fluoxetina",
+      "quantity": 15,
+      "status": "PENDIENTE",
+      "created_at": "2024-11-10T00:00:00.000Z",
+      "expires_at": "2025-03-10T00:00:00.000Z",
+      "type": 1,
+      "instructions": "Tomar 1 comprimido ao dia, de preferência pela manhã, para tratamento de distúrbios de humor."
+    },
+    {
+      "id": "rx015",
+      "code": "O505",
+      "name_drug": "Furosemida",
+      "quantity": 25,
+      "status": "PENDIENTE",
+      "created_at": "2024-11-15T00:00:00.000Z",
+      "expires_at": "2025-04-15T00:00:00.000Z",
+      "type": 1,
+      "instructions": "Tomar 1 comprimido pela manhã para controle de retenção de líquidos."
+    },
+    {
+      "id": "rx016",
+      "code": "P606",
+      "name_drug": "Lorazepam",
+      "quantity": 10,
+      "status": "PENDIENTE",
+      "created_at": "2024-11-18T00:00:00.000Z",
+      "expires_at": "2025-05-18T00:00:00.000Z",
+      "type": 2,
+      "instructions": "Tomar antes de dormir, em casos de insônia ou ansiedade, conforme orientação médica."
+    },
+    {
+      "id": "rx017",
+      "code": "Q707",
+      "name_drug": "Atorvastatina",
+      "quantity": 20,
+      "status": "PENDIENTE",
+      "created_at": "2024-11-22T00:00:00.000Z",
+      "expires_at": "2025-11-22T00:00:00.000Z",
+      "type": 1,
+      "instructions": "Tomar 1 comprimido antes de dormir para controle do colesterol."
+    },
+    {
+      "id": "rx018",
+      "code": "R808",
+      "name_drug": "Prednisona",
+      "quantity": 12,
+      "status": "PENDIENTE",
+      "created_at": "2024-11-23T00:00:00.000Z",
+      "expires_at": "2025-05-23T00:00:00.000Z",
+      "type": 1,
+      "instructions": "Tomar 1 comprimido pela manhã com o café da manhã, para tratamento de inflamação."
+    },
+    {
+      "id": "rx019",
+      "code": "S909",
+      "name_drug": "Moxifloxacino",
+      "quantity": 7,
+      "status": "PENDIENTE",
+      "created_at": "2024-11-24T00:00:00.000Z",
+      "expires_at": "2025-02-24T00:00:00.000Z",
+      "type": 1,
+      "instructions": "Tomar 1 comprimido ao dia até completar o ciclo de tratamento, para infecções bacterianas."
+    },
+    {
+      "id": "rx020",
+      "code": "T101",
+      "name_drug": "Prednisolona",
+      "quantity": 10,
+      "status": "USADA",
+      "created_at": "2024-06-15T00:00:00.000Z",
+      "expires_at": "2024-09-15T00:00:00.000Z",
+      "type": 2,
+      "instructions": "Tomar conforme orientação médica para aliviar a dor e a inflamação."
+    },
+    {
+      "id": "rx021",
+      "code": "U202",
+      "name_drug": "Espironolactona",
+      "quantity": 30,
+      "status": "PENDIENTE",
+      "created_at": "2024-10-25T00:00:00.000Z",
+      "expires_at": "2025-01-25T00:00:00.000Z",
+      "type": 1,
+      "instructions": "Tomar 1 comprimido por dia para reduzir a pressão arterial."
+    },
+    {
+      "id": "rx022",
+      "code": "V303",
+      "name_drug": "Divalproato",
+      "quantity": 10,
+      "status": "PENDIENTE",
+      "created_at": "2024-09-01T00:00:00.000Z",
+      "expires_at": "2024-12-01T00:00:00.000Z",
+      "type": 1,
+      "instructions": "Tomar 1 comprimido ao dia para controle de crises de epilepsia."
+    },
+    {
+      "id": "rx023",
+      "code": "W404",
+      "name_drug": "Gabapentina",
+      "quantity": 30,
+      "status": "PENDIENTE",
+      "created_at": "2024-10-05T00:00:00.000Z",
+      "expires_at": "2025-03-05T00:00:00.000Z",
+      "type": 1,
+      "instructions": "Tomar 1 comprimido pela noite para controle de dores neuropáticas."
+    },
+    {
+      "id": "rx024",
+      "code": "X505",
+      "name_drug": "Enalapril",
+      "quantity": 20,
+      "status": "PENDIENTE",
+      "created_at": "2024-10-28T00:00:00.000Z",
+      "expires_at": "2025-04-28T00:00:00.000Z",
+      "type": 1,
+      "instructions": "Tomar 1 comprimido ao dia, de preferência pela manhã."
+    },
+    {
+      "id": "rx025",
+      "code": "Y606",
+      "name_drug": "Cloridrato de Loperamida",
+      "quantity": 10,
+      "status": "PENDIENTE",
+      "created_at": "2024-11-15T00:00:00.000Z",
+      "expires_at": "2025-01-15T00:00:00.000Z",
+      "type": 1,
+      "instructions": "Tomar 1 comprimido a cada 4 horas, até um máximo de 6 comprimidos ao dia, para controle de diarreia."
+    },
+    {
+      "id": "rx026",
+      "code": "Z707",
+      "name_drug": "Alprazolam",
+      "quantity": 15,
+      "status": "USADA",
+      "created_at": "2024-08-01T00:00:00.000Z",
+      "expires_at": "2024-09-01T00:00:00.000Z",
+      "type": 2,
+      "instructions": "Tomar 1 comprimido pela manhã para ansiedade."
+    }
+  ]
+}

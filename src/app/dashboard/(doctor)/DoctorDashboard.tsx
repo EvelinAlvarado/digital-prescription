@@ -2,8 +2,8 @@ import React from "react";
 import { useAuth } from "@/hooks/useAuth";
 import DashboardHeader from "@/components/DashboardHeader";
 import AnalysisGraph from "@/components/AnalysisGraph";
-import { PrescriptionList } from "@/components/PrescriptionList";
-import { data, columns } from "@/constants/temporaryData";
+// import { PrescriptionList } from "@/components/PrescriptionList";
+// import { data, columns } from "@/constants/temporaryData";
 
 export default function DoctorDashboard() {
   // const { user } = useAuth();

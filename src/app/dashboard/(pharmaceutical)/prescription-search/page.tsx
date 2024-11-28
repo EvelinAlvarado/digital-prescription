@@ -1,28 +1,42 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import PrescriptionDetails from "@/components/PrescriptionDetails";
 import { usePrescriptions } from "@/hooks/usePrescription";
+import { PrescriptionCard } from "@/components/PrescriptionCard";
+import { Prescription } from "@/Types/user";
 
 export default function PrescriptionSearch() {
   const [searchCode, setSearchCode] = useState<string>("");
-  const [selectedPrescriptionId, setSelectedPrescriptionId] = useState<
-    string | null
-  >(null);
+  const [prescription, setPrescription] = useState<Prescription | null>(null);
+  const [message, setMessage] = useState<string | null>(null);
 
-  const { getPrescription, userRole } = usePrescriptions();
+  const { prescriptions } = usePrescriptions();
 
-  const handleSearch = () => {
-    console.log("Buscando código:", searchCode);
-    const prescription = getPrescription(searchCode);
-    console.log("Resultado:", prescription);
-    setSelectedPrescriptionId(prescription?.id ?? null);
-  };
+  useEffect(() => {
+    //empty
+    if (searchCode.trim() === "") {
+      setPrescription(null);
+      setMessage(null);
+      return;
+    }
+
+    const foundPrescription = prescriptions.find(
+      (p) => p.code.toLowerCase() === searchCode.toLowerCase()
+    );
+
+    if (foundPrescription) {
+      setPrescription(foundPrescription);
+      setMessage(null);
+    } else {
+      setPrescription(null);
+      setMessage(`Nenhuma receita encontrada para o código ${searchCode}.`);
+    }
+  }, [searchCode, prescriptions]);
 
   return (
-    <section className="flex flex-col items-center gap-4">
+    <section className="flex flex-col items-center justify-center gap-4 h-full">
       <div className="flex justify-between items-center gap-10">
         <div>
           <h2 className="text-4xl">Buscar Receita Médica</h2>
@@ -38,22 +52,14 @@ export default function PrescriptionSearch() {
             value={searchCode}
             onChange={(e) => setSearchCode(e.target.value)}
           />
-          <Button type="button" onClick={handleSearch}>
-            Consultar
-          </Button>
+          <Button type="button" /* onClick={handleSearch} */>Consultar</Button>
         </div>
       </div>
-
-      {selectedPrescriptionId ? (
-        <PrescriptionDetails id={selectedPrescriptionId} userRole={userRole} />
-      ) : searchCode ? (
-        <p className="text-muted-foreground mt-4">
-          Nenhuma receita encontrada para o código "{searchCode}".
-        </p>
+      {/* Rendering PrescriptionCard if founded or show a message */}
+      {prescription ? (
+        <PrescriptionCard prescription={prescription} />
       ) : (
-        <p className="text-muted-foreground mt-4">
-          Insira um código para buscar.
-        </p>
+        message && <p className="text-muted-foreground mt-4">{message}</p>
       )}
     </section>
   );

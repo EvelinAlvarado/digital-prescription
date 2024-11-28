@@ -34,10 +34,10 @@ body {
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
     /* custom colors */
-    --color-primary: #4c4ddc;
-    --color-light: #ededfc;
+    --color-primary: #2b90dc;
+    --color-light: #f1f8ff;
     --color-dark: #101010;
-    --color-secondary: #c8c8f4;
+    --color-secondary: #b6d6f7;
     --color-neutral: #d4d4d8;
     --color-neutral-dark: #939393;
     --color-base: #ffffff;

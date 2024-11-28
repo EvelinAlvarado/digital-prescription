@@ -1,9 +1,14 @@
+"use client";
 import { DataTableList } from "@/components/DataTableList";
-import { data } from "@/constants/temporaryData";
+// import { data } from "@/constants/temporaryData";
 import React from "react";
 import { columnsTable } from "@/components/HeaderColumnsTable";
+import { usePrescriptions } from "@/hooks/usePrescription";
 
 export default function History() {
+  const { prescriptions } = usePrescriptions();
+  console.log("data desde page:", prescriptions);
+
   return (
     <section className="flex flex-col mx-auto min-h-full">
       <div className="mb-4">
@@ -15,8 +20,11 @@ export default function History() {
           verificando os detalhes e status de cada prescrição.
         </p>
       </div>
-      {/* <PrescriptionList columns={columns} data={data} /> */}
-      <DataTableList columns={columnsTable} data={data} />
+      <DataTableList
+        columns={columnsTable}
+        data={prescriptions}
+        paginationAndInput
+      />
     </section>
   );
 }
