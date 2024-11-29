@@ -8,37 +8,78 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { useAuth } from "@/hooks/useAuth";
+import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+
+const loginSchema = z.object({
+  email: z
+    .string()
+    .min(8, { message: "O email é obrigatório" })
+    .email({ message: "Digite um email válido" }),
+  password: z.string().min(3, {
+    message: "A senha deve conter no mínimo 3 caracteres",
+  }),
+});
 
 const Login = () => {
   const { login } = useAuth();
   const router = useRouter(); // like naviagate()
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setIsLoading(true);
+  const form = useForm<z.infer<typeof loginSchema>>({
+    resolver: zodResolver(loginSchema),
+    defaultValues: {
+      email: "",
+      password: "",
+    },
+  });
 
+  // const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  //   e.preventDefault();
+  //   setIsLoading(true);
+
+  //   setIsLoading(true);
+  //   setError(null);
+  //   // console.log(email, password);
+
+  //   /* using API */
+  //   try {
+  //     await login(email, password);
+  //     router.push("/dashboard");
+  //   } catch (err: any) {
+  //     setError("Falha ao fazer login. Verifique suas credenciais.");
+  //     console.error("Error ao fazer o login:", err.message);
+  //   } finally {
+  //     setIsLoading(false);
+  //   }
+  // };
+
+  const onSubmit = async (values: z.infer<typeof loginSchema>) => {
     setIsLoading(true);
     setError(null);
-    // console.log(email, password);
-
-    /* using API */
+    console.log("credenciais:", values);
     try {
-      await login(email, password);
+      await login(values.email, values.password);
       router.push("/dashboard");
     } catch (err: any) {
       setError("Falha ao fazer login. Verifique suas credenciais.");
-      console.error("Error ao fazer o login:", err.message);
+      console.error("Erro ao fazer login:", err.message);
     } finally {
       setIsLoading(false);
     }
@@ -53,46 +94,62 @@ const Login = () => {
         </CardDescription>
       </CardHeader>
       <CardContent className="pb-1">
-        <form onSubmit={handleSubmit}>
-          <div className="grid w-full items-center gap-4">
-            <div className="flex flex-col space-y-1.5">
-              <Label htmlFor="email">Email</Label>
-              <Input
-                type="email"
-                id="email"
-                placeholder="Email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
+        <Form {...form}>
+          <form onSubmit={form.handleSubmit(onSubmit)}>
+            <div className="grid w-full items-center gap-4">
+              {/* Campo de Email */}
+              <FormField
+                control={form.control}
+                name="email"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Email</FormLabel>
+                    <FormControl>
+                      <Input
+                        type="email"
+                        placeholder="Email"
+                        {...field}
+                        required
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              {/* Campo de Senha */}
+              <FormField
+                control={form.control}
+                name="password"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Senha</FormLabel>
+                    <FormControl>
+                      <Input
+                        type="password"
+                        placeholder="Senha"
+                        {...field}
+                        required
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
               />
             </div>
-            <div className="flex flex-col space-y-1.5">
-              <Label htmlFor="password">Senha</Label>
-              <Input
-                type="password"
-                id="password"
-                placeholder="Senha"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-              />
-            </div>
-          </div>
-          {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
-          <div className="flex flex-col w-full mt-6">
-            <Button type="submit" className="w-full">
+            {/* Mensagem de erro */}
+            {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
+            {/* <div className="flex flex-col w-full mt-6"> */}
+            <Button type="submit" className="w-full mt-5" disabled={isLoading}>
               {isLoading ? "Entrando..." : "Entrar"}
             </Button>
-          </div>
-        </form>
+            {/* </div> */}
+          </form>
+        </Form>
       </CardContent>
       <CardFooter className="flex flex-col w-full">
         <CardDescription>
           Não tem uma conta?
-          <Link
-            href="/auth/register"
-            // onClick={onToggle}
-          >
+          <Link href="/auth/register">
             <Button variant="link" className="w-min">
               Cadastre-se
             </Button>

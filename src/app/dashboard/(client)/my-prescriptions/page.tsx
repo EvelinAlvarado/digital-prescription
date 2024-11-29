@@ -1,6 +1,10 @@
+import { DataTableList } from "@/components/DataTableList";
+import { columnsTable } from "@/components/HeaderColumnsTable";
+import { usePrescriptions } from "@/hooks/usePrescription";
 import React from "react";
 
 export default function MyPrescriptions() {
+  const { prescriptions } = usePrescriptions();
   return (
     <section className="flex flex-col justify-start items-start min-h-full">
       <div className="mb-4">
@@ -13,8 +17,11 @@ export default function MyPrescriptions() {
           forma simples e organizada.
         </p>
       </div>
-      {/* tabela */}
-      {/* <PrescriptionList columns={columns} data={data} /> */}
+      <DataTableList
+        columns={columnsTable}
+        data={prescriptions}
+        paginationAndInput
+      />
     </section>
   );
 }

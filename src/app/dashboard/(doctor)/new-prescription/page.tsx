@@ -3,7 +3,7 @@ import React from "react";
 
 export default function NewPrescription() {
   return (
-    <section className="flex flex-col justify-start items-start min-h-full">
+    <section className="flex flex-col justify-start items-start min-h-full mx-auto">
       <div className="">
         <h2 className="text-4xl font-semibold text-primary mb-2">
           Criar Nova Receita Médica

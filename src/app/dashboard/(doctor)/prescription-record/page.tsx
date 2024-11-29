@@ -9,7 +9,7 @@ export default function PrescriptionRecord() {
   const { prescriptions } = usePrescriptions();
   console.log("data desde page:", prescriptions);
   return (
-    <section className="flex flex-col justify-start items-start min-h-full">
+    <section className="flex flex-col justify-start items-start min-h-full mx-auto">
       <div className="mb-4">
         <h2 className="text-4xl font-semibold text-primary mb-2">
           Receitas Prescritas
