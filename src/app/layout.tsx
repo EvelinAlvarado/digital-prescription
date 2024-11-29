@@ -29,11 +29,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <AuthProvider>
-        <PrescriptionProvider>
-          <body className="bg-my-base">{children}</body>
-        </PrescriptionProvider>
-      </AuthProvider>
+      {/* <AuthProvider> */}
+      <PrescriptionProvider>
+        <body className="bg-my-base">{children}</body>
+      </PrescriptionProvider>
+      {/* </AuthProvider> */}
     </html>
   );
 }

@@ -25,12 +25,14 @@ export interface User {
   password: string;
 }
 
+export type Status = "PENDIENTE" | "USADA" | "EXPIRADO";
+
 export interface PrescriptionListTable {
   id: string;
   code: string;
   name_drug: string;
   quantity: number;
-  status: "PENDIENTE" | "USADA" | "EXPIRADO";
+  status: Status;
   created_at: Date;
   expires_at: Date;
 }

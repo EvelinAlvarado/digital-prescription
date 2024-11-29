@@ -1,21 +1,25 @@
+"use client";
+
 import React from "react";
-import { useAuth } from "@/hooks/useAuth";
+// import { useAuth } from "@/hooks/useAuth";
 import DashboardHeader from "@/components/DashboardHeader";
-import AnalysisGraph from "@/components/AnalysisGraph";
-// import { PrescriptionList } from "@/components/PrescriptionList";
-// import { data, columns } from "@/constants/temporaryData";
+// import AnalysisGraph from "@/components/AnalysisGraph";
+import { usePrescriptions } from "@/hooks/usePrescription";
+import { DataTableList } from "@/components/DataTableList";
+import { columnsTable } from "@/components/HeaderColumnsTable";
 
 export default function DoctorDashboard() {
   // const { user } = useAuth();
+  const { prescriptions } = usePrescriptions();
 
   const user = {
-    role: "pharmaceutical", // Dynamic (pharmaceutical, doctor, client)
+    role: "doctor", // Dynamic (pharmaceutical, doctor, client)
     name: "Carlos Silva",
   };
 
   const userName = user ? `Dr. ${user.name}` : "Usuário";
 
-  const limitedData = data.slice(0, 3);
+  const limitedData = prescriptions.slice(0, 3);
   return (
     <section className=" h-full">
       <DashboardHeader
@@ -27,12 +31,16 @@ export default function DoctorDashboard() {
         <div className="aspect-video rounded-xl bg-my-light"></div>
         <div className="aspect-video rounded-xl bg-my-light"></div>
         <div className="aspect-video rounded-xl bg-my-my-light p-2">
-          <AnalysisGraph />
+          {/* <AnalysisGraph /> */}
         </div>
         <div></div>
       </div>
-      <div className="min-h-[100vh] flex-1 rounded-xl bg-my-light md:min-h-min p-2">
-        <PrescriptionList data={limitedData} columns={columns} />
+      <div className="min-h-[100vh] flex-1 rounded-xl md:min-h-min p-2">
+        <DataTableList
+          data={limitedData}
+          columns={columnsTable}
+          paginationAndInput={false}
+        />
       </div>
     </section>
   );

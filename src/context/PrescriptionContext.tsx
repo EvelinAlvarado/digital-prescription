@@ -1,13 +1,7 @@
 "use client";
 
 import { Prescription } from "@/Types/user";
-import {
-  createContext,
-  ReactNode,
-  // useContext,
-  useEffect,
-  useState,
-} from "react";
+import { createContext, ReactNode, useEffect, useState } from "react";
 // import { AuthContext } from "@/context/AuthContext";
 // import { data } from "@/constants/temporaryData";
 import { API, API_ENDPOINTS } from "@/services/api";
@@ -68,7 +62,7 @@ export const PrescriptionProvider = ({ children }: { children: ReactNode }) => {
       console.log("Erro ao crear nova receita", error);
     }
   };
-
+  /* to practice json server */
   const addNewPrescriptionFrontendId = async (
     prescription: Omit<Prescription, "id">
   ) => {

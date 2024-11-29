@@ -175,8 +175,9 @@ export const columnsTable: ColumnDef<Prescription>[] = [
       );
     },
     cell: ({ row }) => {
-      const created_at = row.getValue("created_at");
-      const formatted_dob = new Date(created_at as string).toLocaleDateString();
+      const expires_at = row.getValue("expires_at");
+      const formatted_dob = new Date(expires_at as string).toLocaleDateString();
+
       return <div className="font-medium">{formatted_dob}</div>;
     },
   },
@@ -205,6 +206,7 @@ export const columnsCardPrescription: ColumnDef<Prescription>[] = [
     cell: ({ row }) => {
       const expires_at = row.getValue("expires_at");
       const formatted_dob = new Date(expires_at as string).toLocaleDateString();
+
       return <div className="font-medium">{formatted_dob}</div>;
     },
   },

@@ -285,6 +285,72 @@
       "expires_at": "2024-09-01T00:00:00.000Z",
       "type": 2,
       "instructions": "Tomar 1 comprimido pela manhã para ansiedade."
+    },
+    {
+      "id": "2024-11-29T12:37:21.651Z",
+      "name_drug": "Amoxicilina",
+      "quantity": 4,
+      "instructions": "bfgbgjnuj",
+      "code": "2024-11-29T12:37:21.651Z",
+      "status": "PENDIENTE",
+      "created_at": "2024-11-29T12:37:21.651Z",
+      "expires_at": "2025-11-29T12:37:21.651Z",
+      "type": 10
+    },
+    {
+      "id": "2024-11-29T12:42:59.637Z",
+      "name_drug": "Eutirox",
+      "quantity": 120,
+      "instructions": "Tomar 1 comprimido ao dia, de preferência pela manhã em jejum.",
+      "code": "2024-11-29T12:42:59.636Z",
+      "status": "PENDIENTE",
+      "created_at": "2024-11-29T12:42:59.636Z",
+      "expires_at": "2025-11-29T12:42:59.636Z",
+      "type": 10
+    },
+    {
+      "id": "2024-11-29T13:59:44.524Z",
+      "name_drug": "Xarope Tose",
+      "quantity": 1,
+      "instructions": "1 vez por dia",
+      "code": "2024-11-29T13:59:44.524Z",
+      "status": "PENDIENTE",
+      "created_at": "2024-11-29T13:59:44.524Z",
+      "expires_at": "2025-11-29T13:59:44.524Z",
+      "type": 10
+    },
+    {
+      "id": "2024-11-29T14:13:42.930Z",
+      "name_drug": "Lidocaina creme",
+      "quantity": 1,
+      "instructions": "4 vezes por dia",
+      "code": "2024-11-29T14:13:42.930Z",
+      "status": "PENDIENTE",
+      "created_at": "2024-11-29T14:13:42.930Z",
+      "expires_at": "2025-11-29T14:13:42.930Z",
+      "type": 10
+    },
+    {
+      "id": "2024-11-29T14:26:47.286Z",
+      "name_drug": "Metformina",
+      "quantity": 45,
+      "instructions": "tomar 1 vez depois do jantar",
+      "code": "2024-11-29T14:26:47.286Z",
+      "status": "PENDIENTE",
+      "created_at": "2024-11-29T14:26:47.286Z",
+      "expires_at": "2025-11-29T14:26:47.286Z",
+      "type": 10
+    },
+    {
+      "id": "2024-11-29T14:30:53.261Z",
+      "name_drug": "Anfotericina B",
+      "quantity": 1,
+      "instructions": "Aplicar 3 vezes por dia",
+      "code": "2024-11-29T14:30:53.260Z",
+      "status": "PENDIENTE",
+      "created_at": "2024-11-29T14:30:53.260Z",
+      "expires_at": "2025-11-29T14:30:53.260Z",
+      "type": 10
     }
   ]
 }

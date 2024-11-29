@@ -27,7 +27,7 @@ import {
   Pill,
 } from "lucide-react";
 import Image from "next/image";
-import { useAuth } from "@/hooks/useAuth";
+// import { useAuth } from "@/hooks/useAuth";
 
 export default function DashboardLayout({
   children,
@@ -38,7 +38,7 @@ export default function DashboardLayout({
 
   // Data coming from backend? - exemplo
   const user = {
-    role: "pharmaceutical", // Dynamic (pharmaceutical, doctor, client)
+    role: "doctor", // Dynamic (pharmaceutical, doctor, client)
     name: "Carlos Silva",
   };
   console.log(user);
@@ -108,15 +108,18 @@ export default function DashboardLayout({
             </BreadcrumbList>
           </Breadcrumb> */}
           <div className="ml-auto px-3 flex gap-3 items-center">
+            <span>
+              {user.role.toLowerCase() === "doctor" ? "Dr(a). " : ""}
+              {user?.name}
+            </span>
             <div className="border border-my-primary rounded-full">
               <Image
                 alt="Imagen de usuario"
-                src="/images/user-default.png"
+                src="/images/user-default-blue.png"
                 width={30}
                 height={30}
               />
             </div>
-            <span>{user?.name}</span>
           </div>
         </header>
         <main className="bg-my-base flex flex-1 flex-col gap-4 p-4">

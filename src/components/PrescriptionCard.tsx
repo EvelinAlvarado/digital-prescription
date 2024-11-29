@@ -26,10 +26,10 @@ export function PrescriptionCard({ prescription }: PrescriptionCardProps) {
   // const{user}=useAuth()
 
   const user = {
-    role: "PHARMACEUTICAL", // Dynamic (PHARMACEUTICAL, DOCTOR, client)
+    role: "DOCTOR", // Dynamic (PHARMACEUTICAL, DOCTOR, client)
     name: "Carlos Silva",
   };
-  const role: boolean = user?.role === "PHARMACEUTICAL";
+  const role: boolean = user?.role.toUpperCase() === "PHARMACEUTICAL";
   useEffect(() => {
     setIsPharmaceutical(role);
   }, [role]);
@@ -40,11 +40,9 @@ export function PrescriptionCard({ prescription }: PrescriptionCardProps) {
     try {
       if (prescription.status === "PENDIENTE") {
         await updatePrescriptionStatus(prescription.id, "USADA");
-        // Optional: You could update local component state if needed
-        // setPrescription(prev => ({ ...prev, status: "USADA" }));
       }
     } catch (error) {
-      // Handle potential errors (e.g., show a toast notification)
+      // Handle potential errors ( show a toast notification????)
       console.error("Failed to update prescription status", error);
     }
   };

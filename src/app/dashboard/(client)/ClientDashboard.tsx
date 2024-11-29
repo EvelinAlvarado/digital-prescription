@@ -1,11 +1,11 @@
 import React from "react";
-import { useAuth } from "@/hooks/useAuth";
+// import { useAuth } from "@/hooks/useAuth";
 import DashboardHeader from "@/components/DashboardHeader";
 
 export default function ClientDashboard() {
   // const { user } = useAuth();
   const user = {
-    role: "pharmaceutical", // Dynamic (pharmaceutical, doctor, client)
+    role: "doctor", // Dynamic (pharmaceutical, doctor, client)
     name: "Carlos Silva",
   };
 

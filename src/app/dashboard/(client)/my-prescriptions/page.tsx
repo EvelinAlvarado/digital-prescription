@@ -1,5 +1,3 @@
-import { PrescriptionList } from "@/components/PrescriptionList";
-import { columns, data } from "@/constants/temporaryData";
 import React from "react";
 
 export default function MyPrescriptions() {
@@ -16,7 +14,7 @@ export default function MyPrescriptions() {
         </p>
       </div>
       {/* tabela */}
-      <PrescriptionList columns={columns} data={data} />
+      {/* <PrescriptionList columns={columns} data={data} /> */}
     </section>
   );
 }
