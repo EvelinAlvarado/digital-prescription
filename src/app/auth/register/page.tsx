@@ -1,3 +1,4 @@
+"use client";
 import { Button } from "@/components/ui/button";
 import {
   CardContent,
@@ -6,61 +7,179 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
 import React from "react";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+
+const registerSchema = z
+  .object({
+    name: z.string().min(3, "Nome é obrigatório"),
+    lastName: z.string().min(3, "Sobrenome é obrigatório"),
+    telefone: z
+      .string()
+      .regex(/^\d{9,14}$/, "Telefone deve ter 9 ou 14 dígitos"),
+    // cpf: z
+    //   .string()
+    //   .regex(/^\d{11}$/, "CPF deve ter 11 dígitos"),
+    email: z.string().email("Digite um email válido"),
+    password: z.string().min(6, "Senha deve conter no mínimo 6 caracteres"),
+    confirmPassword: z.string(),
+  })
+  .refine((data) => data.password === data.confirmPassword, {
+    message: "As senhas não coincidem",
+    path: ["confirmPassword"],
+  });
 
 const Register = () => {
+  const form = useForm<z.infer<typeof registerSchema>>({
+    resolver: zodResolver(registerSchema),
+    defaultValues: {
+      name: "",
+      lastName: "",
+      telefone: "",
+      // cpf: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
+    },
+  });
+
+  const onSubmit = (values: z.infer<typeof registerSchema>) => {
+    console.log("Dados do formulário:", values);
+  };
+
   return (
     <div className="text-basePrimary">
       <CardHeader>
         <CardTitle>Criar Conta</CardTitle>
       </CardHeader>
       <CardContent className="pb-0">
-        <form>
-          <div className="grid w-full items-center gap-4">
-            <div className="flex gap-2">
-              <div className="flex flex-col space-y-1.5 w-full">
-                <Label htmlFor="name">Nome</Label>
-                <Input type="text" id="name" placeholder="Name" />
-              </div>
-              <div className="flex flex-col space-y-1.5 w-full">
-                <Label htmlFor="lastName">Sobrenome</Label>
-                <Input type="text" id="lastName" placeholder="Last Name" />
-              </div>
-            </div>
-            <div className="flex gap-2">
-              <div className="flex flex-col space-y-1.5 w-full">
-                <Label htmlFor="telefone">Telefone</Label>
-                <Input type="text" id="name" placeholder="Name" />
-              </div>
-              <div className="flex flex-col space-y-1.5 w-full">
-                <Label htmlFor="cpf">CPF</Label>
-                <Input type="text" id="lastName" placeholder="Last Name" />
-              </div>
-            </div>
-            <div className="flex flex-col space-y-1.5">
-              <Label htmlFor="email">Email</Label>
-              <Input type="email" id="email" placeholder="Email" />
-            </div>
-            <div className="flex flex-col space-y-1.5">
-              <Label htmlFor="password">Senha</Label>
-              <Input type="password" id="password" placeholder="Password" />
-            </div>
-            <div className="flex flex-col space-y-1.5">
-              <Label htmlFor="confirmPassword">Confirmar Senha</Label>
-              <Input
-                type="password"
-                id="confirmPassword"
-                placeholder="Confirm Password"
+        <Form {...form}>
+          <form onSubmit={form.handleSubmit(onSubmit)}>
+            <div className="grid w-full items-center gap-4">
+              {/* <div className="flex gap-2"> */}
+              {/* Campo de Nome */}
+              <FormField
+                control={form.control}
+                name="name"
+                render={({ field }) => (
+                  <FormItem className="w-full">
+                    <FormLabel>Nome</FormLabel>
+                    <FormControl>
+                      <Input placeholder="Nome" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              {/* Campo de Sobrenome */}
+              <FormField
+                control={form.control}
+                name="lastName"
+                render={({ field }) => (
+                  <FormItem className="w-full">
+                    <FormLabel>Sobrenome</FormLabel>
+                    <FormControl>
+                      <Input placeholder="Sobrenome" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              {/* </div> */}
+              {/* <div className="flex gap-2"> */}
+              {/* Campo de Telefone */}
+              <FormField
+                control={form.control}
+                name="telefone"
+                render={({ field }) => (
+                  <FormItem className="w-full">
+                    <FormLabel>Telefone</FormLabel>
+                    <FormControl>
+                      <Input placeholder="Telefone" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              {/* Campo de CPF */}
+              {/* <FormField
+                control={form.control}
+                name="cpf"
+                render={({ field }) => (
+                  <FormItem className="w-full">
+                    <FormLabel>CPF</FormLabel>
+                    <FormControl>
+                      <Input placeholder="CPF" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              /> */}
+              {/* </div> */}
+              {/* Campo de Email */}
+              <FormField
+                control={form.control}
+                name="email"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Email</FormLabel>
+                    <FormControl>
+                      <Input placeholder="Email" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              {/* Campo de Senha */}
+              <FormField
+                control={form.control}
+                name="password"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Senha</FormLabel>
+                    <FormControl>
+                      <Input type="password" placeholder="Senha" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              {/* Campo de Confirmar Senha */}
+              <FormField
+                control={form.control}
+                name="confirmPassword"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Confirmar Senha</FormLabel>
+                    <FormControl>
+                      <Input
+                        type="password"
+                        placeholder="Confirmar Senha"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
               />
             </div>
-          </div>
-          <Button type="submit" className="w-full mt-5">
-            Sign up
-          </Button>
-        </form>
+            <Button type="submit" className="w-full mt-5">
+              Criar Conta
+            </Button>
+          </form>
+        </Form>
       </CardContent>
       <CardFooter className="flex flex-col w-full">
         <CardDescription className="">
@@ -73,7 +192,6 @@ const Register = () => {
         </CardDescription>
       </CardFooter>
     </div>
-    /* telefone, cPF */
   );
 };
 
