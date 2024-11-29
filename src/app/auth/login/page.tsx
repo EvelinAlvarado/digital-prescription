@@ -138,11 +138,10 @@ const Login = () => {
             </div>
             {/* Mensagem de erro */}
             {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
-            {/* <div className="flex flex-col w-full mt-6"> */}
+
             <Button type="submit" className="w-full mt-5" disabled={isLoading}>
               {isLoading ? "Entrando..." : "Entrar"}
             </Button>
-            {/* </div> */}
           </form>
         </Form>
       </CardContent>
