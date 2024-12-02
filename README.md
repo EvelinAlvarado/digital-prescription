@@ -17,3 +17,16 @@
   <img src="https://img.shields.io/badge/JSON_Server-npm-CB3837?style=for-the-badge&logo=npm&logoColor=white">
   <img src="https://img.shields.io/badge/axios-671ddf?&style=for-the-badge&logo=axios&logoColor=white">
 </div>
+
+## Screenshots
+
+<div align="center">
+  <h3>Doctor Dashboard</h3>
+  <img src="public/images/dash-doctor.png" width="80%" alt="Doctor Dashboard" />
+
+  <h3>Pharmacist Dashboard</h3>
+  <img src="public/images/dash-phamacist.png" width="80%" alt="Pharmacist Dashboard" />
+
+  <h3>Prescription Details</h3>
+  <img src="public/images/img-prescription.png" width="80%" alt="Prescription Details" />
+</div>
