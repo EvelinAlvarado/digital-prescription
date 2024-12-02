@@ -78,6 +78,10 @@ export default {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      backgroundImage: {
+        "daily-news": "url('/images/daily-news.jpg')",
+        "news-pharmacy": "url('/images/news-pharmacy.avif')",
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],

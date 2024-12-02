@@ -38,8 +38,8 @@ export default function DashboardLayout({
 
   // Data coming from backend? - exemplo
   const user = {
-    role: "doctor", // Dynamic (pharmaceutical, doctor, client)
-    name: "Carlos Silva",
+    role: "pharmaceutical", // Dynamic (pharmaceutical, doctor, client)
+    name: "Laura Carvalho",
   };
   console.log(user);
 

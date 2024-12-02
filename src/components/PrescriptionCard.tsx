@@ -26,7 +26,7 @@ export function PrescriptionCard({ prescription }: PrescriptionCardProps) {
   // const{user}=useAuth()
 
   const user = {
-    role: "DOCTOR", // Dynamic (PHARMACEUTICAL, DOCTOR, client)
+    role: "PHARMACEUTICAL", // Dynamic (PHARMACEUTICAL, DOCTOR, client)
     name: "Carlos Silva",
   };
   const role: boolean = user?.role.toUpperCase() === "PHARMACEUTICAL";
