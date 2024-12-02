@@ -5,16 +5,9 @@ import ChartPie from "@/components/ChartPie";
 import DashboardHeader from "@/components/DashboardHeader";
 import { DataTableList } from "@/components/DataTableList";
 import { columnsTable } from "@/components/HeaderColumnsTable";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { usePrescriptions } from "@/hooks/usePrescription";
 import Image from "next/image";
-import { FiTrendingDown, FiTrendingUp } from "react-icons/fi";
 import { GoDotFill } from "react-icons/go";
 // import { useAuth } from "@/hooks/useAuth";
 
